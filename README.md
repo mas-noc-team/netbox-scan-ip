@@ -10,7 +10,6 @@ Alat otomatisasi pemindaian jaringan (*Network Scanner*) berbasis Python yang me
 - **Advanced Hostname Detection**: Menggabungkan Reverse DNS, NetBIOS, mDNS (Bonjour), dan LLMNR untuk menangkap nama asli perangkat (seperti *Realme*, *Infinix*, *Galaxy*, dll.).
 - **MAC Vendor & OS Fingerprinting**: Identifikasi pabrikan perangkat berdasarkan database OUI dan deteksi OS berdasarkan nilai TTL.
 - **NetBox API Integration**: 
-- **NetBox API Integration**: 
   - Otomatis membuat tag *Role* jika belum terdaftar.
   - Sinkronisasi otomatis (*POST* untuk perangkat baru, *PATCH* untuk pembaruan).
   - Klasifikasi otomatis antara *Device* fisik atau *Virtual Machine* (Proxmox/VMware).
@@ -62,8 +61,9 @@ Pastikan *Virtual Environment* sudah aktif, lalu jalankan skrip menggunakan hak 
 
 ### **Linux / macOS:**
 ```bash
-python net_scanner-netbox-ipam.py -t 192.168.x.0/24 ^
-  --netbox-url "[http://127.0.0.1:8000](http://127.0.0.1:8000)" ^
+python net_scanner-netbox-service.py -t 192.168.x.0/24 ^
+  -p "22,53,80,8080,8000,443,3389" ^
+  --netbox-url "http://127.0.0.1:8000" ^
   --netbox-token "YOUR_NETBOX_API_TOKEN" ^
   --telegram-token "YOUR_TELEGRAM_BOT_TOKEN" ^
   --telegram-chat "YOUR_TELEGRAM_CHAT_ID"
@@ -76,7 +76,8 @@ python -c "from scapy.all import get_if_list; print(get_if_list())"
 ```
 
 ```cmd
-python net_scanner-netbox-ipam.py -t 192.168.x.0/24 `
+python net_scanner-netbox-service.py -t 192.168.x.0/24 `
+   -p "22,53,80,8080,8000,443,3389" `
   --netbox-url "http://127.0.0.1:8000" `
   --netbox-token "YOUR_NETBOX_API_TOKEN" `
   --telegram-token "YOUR_TELEGRAM_BOT_TOKEN" `
@@ -90,7 +91,7 @@ sudo crontab -e
 ```
 ```bash
 # Misal dijalankan pukul 02:00 pagi setiap hari
-0 2 * * * /path/to/venv/bin/python3 /path/to/net_scanner-netbox-ipam.py -t 192.168.x.0/24 --netbox-url "[http://127.0.0.1:8000](http://127.0.0.1:8000)" --netbox-token "YOUR_TOKEN" --telegram-token "YOUR_TELE_TOKEN" --telegram-chat "YOUR_CHAT_ID" >> /var/log/scanner_cron.log 2>&1
+0 2 * * * /path/to/venv/bin/python3 /path/to/net_scanner-netbox-service.py -t 192.168.x.0/24 --netbox-url "[http://127.0.0.1:8000](http://127.0.0.1:8000)" --netbox-token "YOUR_TOKEN" --telegram-token "YOUR_TELE_TOKEN" --telegram-chat "YOUR_CHAT_ID" >> /var/log/scanner_cron.log 2>&1
 ```
 ---
 

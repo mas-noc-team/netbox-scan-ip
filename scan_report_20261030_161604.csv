@@ -1,0 +1,18 @@
+IP Address,MAC Address,Vendor,Hostname,OS,Open Ports,Role,Type
+192.168.9.1,d4:ca:6d:b8:07:64,Routerboard.com,MikroTik,Linux/macOS/Android (64),"80, 443",web-server,Device
+192.168.9.52,0a:df:5c:ea:b6:f9,Randomized MAC (Android/iOS),Apple,Linux/macOS/Android (64),None,endpoint,Device
+192.168.9.53,76:1a:69:01:84:e9,Randomized MAC (Android/iOS),Apple,Linux/macOS/Android (64),None,endpoint,Device
+192.168.9.56,42:c0:fc:89:bf:f0,Randomized MAC (Android/iOS),Apple,Linux/macOS/Android (64),None,endpoint,Device
+192.168.9.58,40:1c:83:9f:cf:ef,Intel Corporate,Intel,Unknown (Firewall Drop),None,endpoint,Device
+192.168.9.60,f6:58:89:00:3f:95,Randomized MAC (Android/iOS),Apple,Linux/macOS/Android (64),None,endpoint,Device
+192.168.9.65,f0:9f:c2:0f:eb:53,Ubiquiti Inc,Ubiquiti,Linux/macOS/Android (64),22,linux-server,Device
+192.168.9.70,54:48:e6:ef:36:12,"Beijing Xiaomi Mobile Software Co., Ltd",Xiaomi,Unknown (Firewall Drop),None,endpoint,Device
+192.168.9.71,04:cf:8c:29:19:7a,"XIAOMI Electronics,CO.,LTD",Xiaomi,Unknown (Firewall Drop),None,endpoint,Device
+192.168.9.77,32:f7:37:a3:58:14,Randomized MAC (Android/iOS),Apple,Linux/macOS/Android (64),None,endpoint,Device
+192.168.9.78,88:dc:96:9b:f9:20,"EnGenius Technologies, Inc.",EnGenius,Linux/macOS/Android (64),"80, 443",web-server,Device
+192.168.9.97,7a:df:8f:dc:b5:2b,Randomized MAC (Android/iOS),Apple,Linux/macOS/Android (64),None,endpoint,Device
+192.168.9.99,a8:6e:84:2a:fc:ac,TP-Link Systems Inc,TP-Link,Windows (128),None,endpoint,Device
+192.168.9.122,38:9d:92:d3:bc:4e,Seiko Epson Corporation,Epson,Linux/macOS/Android (64),"80, 443",web-server,Device
+192.168.9.199,6c:3b:6b:de:ab:cf,Routerboard.com,MikroTik,Linux/macOS/Android (64),"22, 80",web-server,Device
+192.168.9.200,00:15:17:f5:a0:65,Intel Corporate,Intel,Linux/macOS/Android (64),22,linux-server,Device
+192.168.9.201,bc:24:11:04:b2:b6,Proxmox Server Solutions GmbH,Proxmox,Linux/macOS/Android (64),22,linux-server,VM
