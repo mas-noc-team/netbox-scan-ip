@@ -47,6 +47,8 @@ pip install scapy requests mac-vendor-lookup urllib3
 ```
 
 #### **Windows (Command Prompt / PowerShell):**
+*Scapy di Windows sangat bergantung pada driver penangkap paket. Pastikan Anda menginstall Npcap (bukan WinPcap lama).
+
 ```bash
 python -m venv venv
 venv\Scripts\activate.bat
@@ -68,11 +70,16 @@ python net_scanner-netbox-ipam.py -t 192.168.x.0/24 ^
 ```
 
 ### **Windows (CMD / PowerShell sebagai Administrator):**
+*Tentukan Interface Jaringan Secara Manual:
 ```cmd
-python net_scanner-netbox-ipam.py -t 192.168.x.0/24 ^
-  --netbox-url "http://127.0.0.1:8000" ^
-  --netbox-token "YOUR_NETBOX_API_TOKEN" ^
-  --telegram-token "YOUR_TELEGRAM_BOT_TOKEN" ^
+python -c "from scapy.all import get_if_list; print(get_if_list())"
+```
+
+```cmd
+python net_scanner-netbox-ipam.py -t 192.168.x.0/24 `
+  --netbox-url "http://127.0.0.1:8000" `
+  --netbox-token "YOUR_NETBOX_API_TOKEN" `
+  --telegram-token "YOUR_TELEGRAM_BOT_TOKEN" `
   --telegram-chat "YOUR_TELEGRAM_CHAT_ID"
 ```
 ---
