@@ -15,6 +15,7 @@ Alat otomatisasi pemindaian jaringan (*Network Scanner*) berbasis Python yang me
   - Klasifikasi otomatis antara *Device* fisik atau *Virtual Machine* (Proxmox/VMware).
   - Rekonsiliasi cerdas: Mengosongkan alokasi IP yang mati/offline tanpa mengubah statusnya menjadi deprecated.
 - **Telegram Notifications**: Mengirimkan peringatan instan saat perangkat baru terhubung atau ketika perangkat mendadak offline.
+- **fungsi guess_role_from_ports**: agar port lain seperti DNS (53), SSH (22), dll., tidak hanya masuk ke deskripsi teks Open Ports, tetapi juga dikenali Role-nya dengan baik di NetBox.
 
 
 ---
@@ -93,6 +94,17 @@ sudo crontab -e
 # Misal dijalankan pukul 02:00 pagi setiap hari
 0 2 * * * /path/to/venv/bin/python3 /path/to/net_scanner-netbox-service.py -t 192.168.x.0/24 --netbox-url "[http://127.0.0.1:8000](http://127.0.0.1:8000)" --netbox-token "YOUR_TOKEN" --telegram-token "YOUR_TELE_TOKEN" --telegram-chat "YOUR_CHAT_ID" >> /var/log/scanner_cron.log 2>&1
 ```
+
+## Mendeteksi port tambahan 
+
+Misalnya port 53, 22, 80, 443, 3389, dll secara bersamaan, jalankan perintah parameter -p:
+
+*Default Port Argument*: Secara default, argumen --ports di skrip diset ke "22,80,443". Jika Anda menjalankan skrip tanpa parameter -p, maka port 53 atau port lain di luar daftar tersebut tidak akan pernah disentuh oleh fungsi scan_ports.
+
+Protokol TCP vs UDP: Port 53 standar pada DNS menggunakan protokol UDP, sedangkan fungsi scan_ports menggunakan socket TCP (SOCK_STREAM).
+
+Agar skrip dapat mendeteksi port apapun secara fleksibel dan menyeluruh, perlu menambahkan opsi port secara manual saat menjalankan perintah (misalnya -p "22,53,80,443,3389").
+
 ---
 
 ## 📄 Lisensi
